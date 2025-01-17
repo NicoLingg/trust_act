@@ -1,0 +1,37 @@
+train:
+  seed: 12
+  num_epochs: 500
+  total_steps: null        # if null, uses num_epochs * steps_per_epoch
+  checkpoint_dir: "checkpoints/"
+  
+  optimizer: "adamw"
+  learning_rate: 3e-4      # LR for transformer
+  lr_backbone: 3e-4        # LR for backbone
+  weight_decay: 1e-4
+
+  validation_step_frequency: 10000
+  log_step_frequency: 100
+  checkpoint_step_frequency: 10000
+
+  scheduler:
+    type: "warmup"
+    warmup_steps: 1
+    decay_strategy: "cosine"
+    backbone_scheduler_enabled: true
+    transformer_scheduler_enabled: true
+    backbone_min_lr_ratio: 0.01
+    backbone_warmup_start_ratio: 0.001
+    transformer_min_lr_ratio: 0.1
+    transformer_warmup_start_ratio: 0.01
+    step_size: 30
+    step_gamma: 0.1
+
+  kl_scheduler:
+    kl_scheduler_enabled: true
+    default_kl_weight: 0.07
+    type: "cyclic"
+    min_kl_loss_weight: 0.001
+    max_kl_loss_weight: 0.07
+    num_epochs_per_cycle: 50
+    R: 0.8
+    annealing_epochs: 500

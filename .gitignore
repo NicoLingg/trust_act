@@ -1,0 +1,10 @@
+__pycache__/
+data/
+checkpoints/
+wandb/
+outputs/
+weights/
+.vscode/
+test_output/
+multirun/
+.DS_Store

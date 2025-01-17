@@ -1,0 +1,11 @@
+defaults:
+  - _self_          
+  - /data.yaml      
+  - /model.yaml     
+  - /train.yaml    
+
+task:
+  name: "stacking_v3"
+  dataset_dir: "data/stacking_v3_processed_224px_s1"
+  cam_width: 224
+  cam_height: 224

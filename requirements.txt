@@ -1,0 +1,17 @@
+torch 
+torchvision
+matplotlib
+mediapy
+tqdm
+h5py
+pyyaml
+einops
+ipython
+wandb
+natsort
+opencv-python
+hydra-core
+nvitop
+transformers
+albumentations
+timm

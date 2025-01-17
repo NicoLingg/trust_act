@@ -1,0 +1,37 @@
+policy:
+  camera_names: ["wrist_rgb", "base_rgb"]
+  num_action_steps: 100
+  num_hist_steps: 1
+  hist_stride: 5
+  sampling_stride: 5
+  num_image_tokens_sqrt: 14
+  action_dim: 7
+  robot_state_dim: 7
+  hidden_dim: 256
+  latent_dim: 4
+  dim_feedforward: 2048
+  backbone: "d4r_vit"                     
+  hf_model_name: "google/vit-base-patch16-224-in21k"
+  enc_layers: 4
+  dec_layers: 4
+  nheads: 8
+  dropout: 0.1
+
+  use_encoder: true                       
+  condition_encoder_on_images: true       
+  mask_p: 0.25                            
+
+  trust_modelling: "BOTH"                
+  trust_prediction_stop_gradient: true    
+  trust_reward_loss_weight: 1             
+  action_loss_weight: 1                   
+  action_aux_loss: {}                     
+
+inference:
+  enable_trusty: false                    
+  trust_context_value: 1.0                
+  num_samples: 1                          
+  sampling_stdev: 0.01                    
+  trust_reward_setting: "HIGH"            
+  trust_reward_reduction: "MEAN"          
+  episode_length: 1000                      
